@@ -1,0 +1,22 @@
+{
+  "name": "hackqc24-bot",
+  "version": "1.0.0",
+  "description": "HackQC2024",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AspectOfJerry/hackqc24-bot.git"
+  },
+  "author": "Jerry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AspectOfJerry/hackqc24-bot/issues"
+  },
+  "homepage": "https://github.com/AspectOfJerry/hackqc24-bot#readme",
+  "dependencies": {
+    "discord.js": "^14.14.1"
+  }
+}
