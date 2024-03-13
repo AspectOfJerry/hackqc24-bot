@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // Create a new client instance
-const client = new Client({intents: [GatewayIntentBits.Guilds, GatewayIntentBits.MessageContent]});
+const client = new Client({intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]});
 
 client.commands = new Map();
 
