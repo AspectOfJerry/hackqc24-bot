@@ -21,4 +21,4 @@ export default {
             interaction.reply({embeds: [pong]});
         });
     }
-};
+}

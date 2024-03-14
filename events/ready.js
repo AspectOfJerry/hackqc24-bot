@@ -58,4 +58,4 @@ export default {
             reply = selfRoleMessage.edit({embeds: [role_embed], components: [action_row]});
         }
     }
-};
+}

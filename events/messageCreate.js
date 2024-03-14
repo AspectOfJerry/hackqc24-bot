@@ -13,4 +13,4 @@ export default {
         await message.channel.sendTyping();
         await invokechain.execute(client, prompt, message);
     }
-};
+}

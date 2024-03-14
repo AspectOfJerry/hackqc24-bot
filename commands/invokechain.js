@@ -15,14 +15,33 @@ export default {
         const prompt = interaction?.options?.getString("prompt") || interaction;
 
         const chain = new RemoteRunnable({
-            url: "http://localhost:8000/chain/",
+            url: `http://localhost:8000/main/`,
         });
 
-        const result = await chain.invoke(prompt);
-
-        if (typeof message == "undefined") return await interaction.editReply({
-            content: `### ${(interaction.user.displayName || interaction.user.username) + ": " + prompt}\n` + result.content
+        const add_human_message = new RemoteRunnable({
+            url: `http://localhost:8000/add_human_message/`,
         });
-        else await message.reply({content: result.content});
+
+        const add_ai_message = new RemoteRunnable({
+            url: `http://localhost:8000/add_ai_message/`,
+        });
+
+        const username = interaction?.user?.displayName || message?.author?.displayName;
+
+        const result = await chain.invoke({role: username, content: prompt});
+        await add_human_message.invoke({role: username, content: prompt});
+
+        if (typeof message == "undefined") {
+            await interaction.editReply({
+                content: `### ${(username) + ": " + prompt}\n` + result.content
+            }).then((msg) => {
+                add_ai_message.invoke({content: msg.content});
+            });
+        } else {
+            await message.reply({content: result.content})
+            .then((msg) => {
+                add_ai_message.invoke({content: msg.content});
+            });
+        }
     }
-};
+}

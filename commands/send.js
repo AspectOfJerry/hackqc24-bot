@@ -14,4 +14,4 @@ export default {
         interaction.channel.send({content: message, tts: true})
         .then(() => interaction.deleteReply());
     }
-};
+}

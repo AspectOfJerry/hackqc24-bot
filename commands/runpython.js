@@ -17,4 +17,4 @@ export default {
             interaction.reply({content: `*stdout:* ${stdout}\n*stderr:* ${stderr}`});
         });
     }
-};
+}
